@@ -44,7 +44,7 @@ body {
 }
 
 .tagline-section {
-  text-align: center;
+  text-align: left;
 }
 
 .tagline-section h2 {
@@ -53,7 +53,7 @@ body {
   font-weight: 700;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.4;
-  max-width: 400px;
+  max-width: 800px;
   margin-bottom: 8px;
 }
 
@@ -80,20 +80,21 @@ body {
 .logo-section {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 60px;
+  gap: 24px;
+  margin-bottom: 80px;
 }
 
 .logo-circle {
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
   background: #2563eb;
   border-radius: 50%;
 }
 
 .logo-text {
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 48px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .hero-section {
@@ -461,5 +462,19 @@ body {
 
   .tagline-section p {
     font-size: 28px;
+  }
+
+  .logo-section {
+    gap: 16px;
+    margin-bottom: 60px;
+  }
+
+  .logo-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .logo-text {
+    font-size: 36px;
   }
 }
