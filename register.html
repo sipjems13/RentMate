@@ -23,9 +23,10 @@
                 </div>
                 
                 <form id="registerForm" onsubmit="handleRegister(event)">
+                    <input type="hidden" id="role" value="tenant">
                     <div class="form-group">
                         <label for="reg-email">Email</label>
-                        <input type="email" id="reg-email" name="email" value="sampleuser@example.com" required>
+                        <input type="email" id="reg-email" name="email" required>
                     </div>
                     
                     <div class="form-row">
@@ -62,12 +63,12 @@
                     
                     <div class="form-group">
                         <label for="reg-password">Password</label>
-                        <input type="password" id="reg-password" name="password" value="SamplePassword123" required>
+                        <input type="password" id="reg-password" name="password" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="confirm-password">Confirm Password</label>
-                        <input type="password" id="confirm-password" name="confirmPassword" value="SamplePassword123" required>
+                        <input type="password" id="confirm-password" name="confirmPassword" required>
                     </div>
                     
                     <button type="submit" class="btn btn-primary btn-submit">register</button>
@@ -80,6 +81,19 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="api.js"></script>
+    <script type="module">
+    // Block tenant self-registration unless a landlord is logged in
+    (function () {
+        const token = localStorage.getItem('rentmate_token');
+        // If there is no token, force users to landlord login first
+        if (!token) {
+            alert('Only landlords can register tenants. Please login as landlord first.');
+            window.location.href = 'landlord-login.html';
+            return;
+        }
+    })();
+    </script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+import { supabase } from './supabase.js';
+
 // Navigation interactivity
 document.addEventListener("DOMContentLoaded", () => {
     const navItems = document.querySelectorAll(".nav-item")
@@ -22,6 +24,20 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
   })
+
+  const logoutBtn = document.getElementById('logoutBtn')
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', async () => {
+      try {
+        // Supabase sign out (if logged in via Supabase)
+        await supabase.auth.signOut()
+      } catch (_) {}
+      // Clear any backend token
+      localStorage.removeItem('rentmate_token')
+      // Go to landing
+      window.location.href = 'index.html'
+    })
+  }
   
   function updateDashboardContent(page) {
     const dashboardTitle = document.querySelector(".dashboard-title")
