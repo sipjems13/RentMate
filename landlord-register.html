@@ -1,42 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RentMate - Landlord Register</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landlord Registration</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
     <div class="container">
-        <div class="content-wrapper">
-            <div class="header-text">Landlord Registration</div>
-            <form id="registerForm" onsubmit="handleRegister(event)">
-                <input type="hidden" id="role" value="landlord">
-                <div class="form-group">
-                    <label for="reg-email">Email</label>
-                    <input type="email" id="reg-email" name="email" required>
+        <div class="split-container">
+            <div class="left-section">
+                <div class="content-wrapper">
+                    <div class="logo-section">
+                        <div class="logo-circle"></div>
+                        <div class="logo-text">RentMate</div>
+                    </div>
+                    <div class="form-section">
+                        <form onsubmit="handleRegister(event)">
+                            <div class="form-group">
+                                <label for="reg-email">Email</label>
+                                <input type="email" id="reg-email" required />
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">First Name</label>
+                                    <input type="text" id="first-name" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name</label>
+                                    <input type="text" id="last-name" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-password">Password</label>
+                                <input type="password" id="reg-password" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm Password</label>
+                                <input type="password" id="confirm-password" required />
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-submit">Register</button>
+                            <div class="form-footer">
+                                Already have an account? <a href="landlord-login.html">Log in</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="first-name">First Name</label>
-                    <input type="text" id="first-name" name="firstName" required>
+            </div>
+            <div class="right-section">
+                <div class="tagline-section">
+                    <h2>Keys to comfort</h2>
+                    <p>just a click away.</p>
                 </div>
-                <div class="form-group">
-                    <label for="last-name">Last Name</label>
-                    <input type="text" id="last-name" name="lastName" required>
-                </div>
-                <div class="form-group">
-                    <label for="reg-password">Password</label>
-                    <input type="password" id="reg-password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <label for="confirm-password">Confirm Password</label>
-                    <input type="password" id="confirm-password" name="confirmPassword" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Register</button>
-            </form>
+            </div>
         </div>
     </div>
-    <script type="module" src="api.js"></script>
-    <script type="module" src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
