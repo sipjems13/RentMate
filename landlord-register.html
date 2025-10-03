@@ -16,30 +16,32 @@
                         <div class="logo-text">RentMate</div>
                     </div>
                     <div class="form-section">
-                        <form onsubmit="handleRegister(event)">
+                    <div class="header-text">Landlord Registration</div>
+                        <form id="registerForm" onsubmit="handleRegister(event)">
+                            <input type="hidden" id="role" value="landlord">
                             <div class="form-group">
                                 <label for="reg-email">Email</label>
-                                <input type="email" id="reg-email" required />
+                                <input type="email" id="reg-email" name="email" required>
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="first-name">First Name</label>
-                                    <input type="text" id="first-name" required />
+                                    <input type="text" id="first-name" name="firstName" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="last-name">Last Name</label>
-                                    <input type="text" id="last-name" required />
+                                    <input type="text" id="last-name" name="lastName" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="reg-password">Password</label>
-                                <input type="password" id="reg-password" required />
+                                <input type="password" id="reg-password" name="password" required>
                             </div>
                             <div class="form-group">
                                 <label for="confirm-password">Confirm Password</label>
-                                <input type="password" id="confirm-password" required />
+                                <input type="password" id="confirm-password" name="confirmPassword" required>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-submit">Register</button>
+                            <button type="submit" class="btn btn-primary">Register</button>
                             <div class="form-footer">
                                 Already have an account? <a href="landlord-login.html">Log in</a>
                             </div>
@@ -55,6 +57,7 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="api.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
