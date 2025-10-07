@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RentMate - Welcome</title>
-    <link rel="stylesheet" href="styles.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <div class="container">
@@ -18,8 +19,8 @@
                 <p class="subtitle">Choose your role to continue</p>
             </div>
             <div class="button-group">
-                <button class="btn btn-primary" onclick="window.location.href='landlord-login.html'">Landlord</button>
-                <button class="btn btn-primary" onclick="window.location.href='tenant-login.html'">Tenant</button>
+                <button class="btn btn-primary" onclick="window.location.href='landlord-login/'">Landlord</button>
+                <button class="btn btn-primary" onclick="window.location.href='tenant-login/'">Tenant</button>
             </div>
         </div>
     </div>

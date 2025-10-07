@@ -1,48 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landlord Login</title>
-    <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-    <div class="container">
-        <div class="split-container">
-            <div class="left-section">
-                <div class="content-wrapper">
-                    <div class="logo-section">
-                        <div class="logo-circle"></div>
-                        <div class="logo-text">RentMate</div>
-                    </div>
-                    <div class="form-section">
-                        <div class="header-text">Landlord Login</div>
-                        <form id="loginForm" onsubmit="handleLogin(event)">
-                            <div class="form-group">
-                                <label for="login-email">Email</label>
-                                <input type="email" id="login-email" name="email" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="login-password">Password</label>
-                                <input type="password" id="login-password" name="password" required />
-                            </div>
-                            <div class="form-footer">
-                                Don't have an account? <a href="landlord-register.html">Sign Up</a>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Login</button>
-                        </form>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Landlord Login</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="split-container">
+                <div class="left-section">
+                    <div class="content-wrapper">
+                        <div class="logo-section">
+                            <div class="logo-circle"></div>
+                            <div class="logo-text">RentMate</div>
+                        </div>
+                        <div class="form-section">
+                            <div class="header-text">Landlord Login</div>
+                            <form id="loginForm">
+                                <div class="form-group">
+                                    <label for="login-email">Email</label>
+                                    <input type="email" id="login-email" name="email" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="login-password">Password</label>
+                                    <input type="password" id="login-password" name="password" required />
+                                </div>
+                                <div class="form-footer">
+                                    Don't have an account? <a href="landlord-register/">Sign Up</a>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="right-section">
-                <div class="tagline-section">
-                    <h2>Keys to comfort</h2>
-                    <p>just a click away.</p>
+                <div class="right-section">
+                    <div class="tagline-section">
+                        <h2>Keys to comfort</h2>
+                        <p>just a click away.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script type="module" src="api.js"></script>
-    <script type="module" src="login.js"></script>
-</body>
-</html>
+        <script type="module" src="{% static 'api.js' %}"></script>
+        <script type="module" src="{% static 'login.js' %}"></script>
+    </body>
+    </html>

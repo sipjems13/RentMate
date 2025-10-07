@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RentMate - Register</title>
-    <link rel="stylesheet" href="styles.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <div class="container">
@@ -75,13 +76,13 @@
                     
                     <div class="form-footer">
                         <span>Already have an account? </span>
-                        <a href="login.html">Log in</a>
+                        <a href="tenant-login/">Log in</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <script type="module" src="api.js"></script>
+    <script type="module" src="{% static 'api.js' %}"></script>
     <script type="module">
     // Block tenant self-registration unless a landlord is logged in
     (function () {
@@ -89,11 +90,11 @@
         // If there is no token, force users to landlord login first
         if (!token) {
             alert('Only landlords can register tenants. Please login as landlord first.');
-            window.location.href = 'landlord-login.html';
+            window.location.href = 'landlord-login/';
             return;
         }
     })();
     </script>
-    <script type="module" src="script.js"></script>
+    <script type="module" src="{% static 'script.js' %}"></script>
 </body>
 </html>

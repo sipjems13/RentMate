@@ -1,46 +1,71 @@
-## RentMate (Python + JS Hybrid)
+## RentMate - Rental Management System
 
-Backend: FastAPI (Python)
-Frontend: Static HTML/CSS with small JS calling the Python API
+Backend: Django REST Framework (Python)
+Frontend: Static HTML/CSS/JavaScript
 
 ### Prerequisites
-- Python 3.10+
+- Python 3.8+
 
 ### Setup
-1. Create venv and install deps:
+1. Install dependencies:
 ```
-python -m venv .venv
-.venv\\Scripts\\activate
 pip install -r requirements.txt
 ```
-2. Configure Supabase Postgres connection (optional):
-   - In Supabase project, copy the connection string (General > Connection string > URI). It looks like:
-     `postgresql://postgres:YOUR_PASSWORD@YOUR_HOST:5432/postgres`
-   - Set environment variable before running (Windows PowerShell):
-     ```
-     $env:DATABASE_URL="postgresql://postgres:YOUR_PASSWORD@YOUR_HOST:5432/postgres"
-     ```
 
-3. Run API:
+2. Navigate to backend directory:
 ```
-uvicorn backend.main:app --reload
+cd backend
 ```
-API runs at `http://127.0.0.1:8000`.
 
-3. Open `index.html` with a local server (e.g. VS Code Live Server) or any static server.
+3. Run migrations:
+```
+python manage.py migrate
+```
 
-### Endpoints
-- POST /api/register
-  - body: { email, password, firstName?, lastName?, address?, phone?, city?, state? }
-  - returns: { access_token, token_type }
-- POST /api/login
-  - body: { email, password }
-  - returns: { access_token, token_type }
+4. Create superuser (optional):
+```
+python manage.py createsuperuser
+```
 
-Roles supported: set `role` in body to `landlord` or `tenant` (default `tenant`).
+5. Start Django development server:
+```
+python manage.py runserver
+```
 
-### Configuration
-Optionally set `window.API_BASE` in a small inline script before loading `api.js` if your API is hosted elsewhere.
+The API runs at `http://127.0.0.1:8000`
+
+6. Open `index.html` with a local server (e.g. VS Code Live Server) or any static server.
+
+### API Endpoints
+
+#### Authentication
+- POST `/api/auth/register/` - User registration
+- POST `/api/auth/login/` - User login
+- POST `/api/auth/logout/` - User logout
+- GET `/api/auth/profile/` - Get user profile
+
+#### Properties
+- GET `/api/properties/units/` - List units
+- POST `/api/properties/units/` - Create unit (landlords only)
+- GET `/api/properties/units/{id}/` - Get unit details
+
+#### Leases
+- GET `/api/properties/leases/` - List leases
+- POST `/api/properties/leases/` - Create lease (landlords only)
+
+#### Maintenance
+- GET `/api/properties/maintenance/` - List maintenance requests
+- POST `/api/properties/maintenance/` - Create maintenance request (tenants only)
+
+### User Roles
+- **Landlord**: Can create and manage units, leases, and view maintenance requests
+- **Tenant**: Can view available units, their leases, and create maintenance requests
+
+### Authentication
+The API uses token-based authentication. Include the token in the Authorization header:
+```
+Authorization: Bearer <your-token>
+```
 
 # RentMate
 This is the repository of the project named Rent Mate with the Project Managers of G1

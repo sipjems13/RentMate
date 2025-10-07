@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentMate - Register</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="header-text">Register</div>
+            
+            <div class="logo-section">
+                <div class="logo-circle"></div>
+                <span class="logo-text">RentMate</span>
+            </div>
+            
+            <div class="form-section">
+                <div class="tagline">
+                    <h2>keys to comfort</h2>
+                    <p>just a click away.</p>
+                </div>
+                
+                <form id="registerForm" onsubmit="handleRegister(event)">
+                    <input type="hidden" id="role" value="tenant">
+                    <div class="form-group">
+                        <label for="reg-email">Email</label>
+                        <input type="email" id="reg-email" name="email" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" name="address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <input type="text" id="state" name="state" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reg-password">Password</label>
+                        <input type="password" id="reg-password" name="password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirmPassword" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-submit">register</button>
+                    
+                    <div class="form-footer">
+                        <span>Already have an account? </span>
+                        <a href="login.html">Log in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="{% static 'api.js' %}"></script>
+    <script type="module">
+    // Block tenant self-registration unless a landlord is logged in
+    (function () {
+        const token = localStorage.getItem('rentmate_token');
+        // If there is no token, force users to landlord login first
+        if (!token) {
+            alert('Only landlords can register tenants. Please login as landlord first.');
+            window.location.href = '/landlord-login/';
+            return;
+        }
+    })();
+    </script>
+    <script type="module" src="{% static 'script.js' %}"></script>
+</body>
+</html>

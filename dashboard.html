@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Tenant | RentMate</title>
-    <link rel="stylesheet" href="styles.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body class="dashboard-body">
     <div class="dashboard-container">
@@ -72,6 +73,6 @@
         </main>
     </div>
 
-    <script type="module" src="dashboard.js"></script>
+    <script type="module" src="{% static 'dashboard.js' %}"></script>
 </body>
 </html>

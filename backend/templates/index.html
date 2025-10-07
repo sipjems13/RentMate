@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentMate - Welcome</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="logo-section">
+                <div class="logo-circle"></div>
+                <span class="logo-text">RentMate</span>
+            </div>
+            <div class="hero-section">
+                <h1 class="main-title">Welcome to RentMate</h1>
+                <p class="subtitle">Choose your role to continue</p>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="window.location.href='{% url 'landlord_login' %}'">Landlord</button>
+                <button class="btn btn-primary" onclick="window.location.href='{% url 'tenant_login' %}'">Tenant</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

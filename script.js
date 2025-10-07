@@ -32,7 +32,7 @@ async function handleRegister(event) {
             await apiRegister(payload);
         }
         alert('Registration successful! Please login.');
-        window.location.href = role === 'landlord' ? 'landlord-login.html' : 'tenant-login.html';
+        window.location.href = role === 'landlord' ? '/landlord-login/' : '/tenant-login/';
     } catch (error) {
         alert(`Registration failed: ${error.message}`);
     }
@@ -48,7 +48,7 @@ async function handleLogin(event) {
         const { access_token } = await apiLogin({ email, password });
         localStorage.setItem('rentmate_token', access_token);
         alert('Login successful! Redirecting to dashboard...');
-        window.location.href = 'dashboard.html';
+        window.location.href = '/dashboard/';
     } catch (error) {
         alert(`Login failed: ${error.message}`);
     }
